@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+  api:
+    container_name: api
+    image: fire-api:0.1
+    restart: always
+    build:
+      context: server
+      args:
+        - DB_PORT=${DB_PORT}
+        - DB_NAME=${DB_NAME}
+        - DB_USERNAME=${DB_USERNAME}
+        - DB_PWD=${DB_PWD}
+    ports:
+      - "8000:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/" ]
+      interval: 10s
+      start_period: 10s
+      timeout: 10s
+      retries: 10
+
+  mysql:
+    container_name: mysqldb
+    image: npid-db:0.1
+    build:
+      context: db
+      args:
+        - MYSQL_DATABASE=${DB_NAME}
+        - MYSQL_USER=${DB_USERNAME}
+        - MYSQL_PASSWORD=${DB_PWD}
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u",
+          "$DB_USERNAME",
+          "-p$DB_PWD"
+        ]
+      interval: 15s
+      start_period: 20s
+      timeout: 15s
+      retries: 10
+    ports:
+      - "${DB_PORT}:3306"

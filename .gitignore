@@ -1,0 +1,8 @@
+node_modules
+.venv/*
+*.env
+*.log
+__pycache__
+.ssh*
+*.ash_history
+.vscode/*

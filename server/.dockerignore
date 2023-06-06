@@ -1,0 +1,8 @@
+app/logs/*
+*__pycache__
+.ash_history
+.dockerignore
+Dockerfile
+.env
+.env.example
+.pytest_cache/*
