@@ -24,19 +24,12 @@ class Settings():
     load_config(SENSITIVE_CONFIG_PATH)
 
     # Set in docker image during build.
-    LOG_PATH = os.environ["NPID_LOG_FOLDER"]
+    LOG_PATH = os.environ["LOG_FOLDER"]
     DB_USERNAME = os.environ["DB_USERNAME"]
     DB_PWD = os.environ["DB_PWD"]
     DB_HOSTNAME = os.environ["DB_HOSTNAME"]
     DB_NAME = os.environ["DB_NAME"]
     DB_PORT = os.environ["DB_PORT"]
-    GENERATE_USERS_ENDPOINT = os.environ["GENERATE_USERS_ENDPOINT"]
-    REFRESH_TOKEN_EXP_MINUTES = int(
-        os.environ["REFRESH_TOKEN_EXP_MINUTES"])
-    ACCESS_TOKEN_EXP_MINUTES = int(
-        os.environ["ACCESS_TOKEN_EXP_MINUTES"])
-    SSH_PUBLIC_KEY_PATH = os.environ["SSH_PUBLIC_KEY_PATH"]
-    SSH_PRIVATE_KEY_PATH = os.environ["SSH_PRIVATE_KEY_PATH"]
 
 
 settings = Settings()

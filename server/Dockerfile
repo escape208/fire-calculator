@@ -34,4 +34,4 @@ RUN chown -R apiuser:apiuser *
 
 USER apiuser
 
-CMD uvicorn app.app:app --host 0.0.0.0
+CMD uvicorn app.main:app --host 0.0.0.0

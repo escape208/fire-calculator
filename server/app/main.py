@@ -1,8 +1,8 @@
 from .classes.settings import settings
 
 from .classes.DatabaseConnection import engine
-from .models import CategoryModels
-from .routers import npids_route
+from .models import ConsumerPriceIndex
+from .routers import cpi_route
 import datetime
 import logging
 from logging import handlers
@@ -28,7 +28,7 @@ streamHandler.setFormatter(formatter)
 logger.addHandler(fileHandler)
 logger.addHandler(streamHandler)
 
-CategoryModels.Base.metadata.create_all(bind=engine)
+ConsumerPriceIndex.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
@@ -49,7 +49,8 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-app.include_router(npids_route.router)
+app.include_router(cpi_route.router)
+
 
 @app.get("/")
 def root():
