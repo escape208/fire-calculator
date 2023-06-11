@@ -6,11 +6,8 @@ from typing import List
 class QuarterlyDataBase(BaseModel):
     id: int
     symbol: str
-    name: str | None
-    description: str | None
-    sector: str | None
-    last_price: float | None
-    last_price_retrieved: date | None
+    notes: str | None
+    release_date: date | None
     created_at: datetime
 
     class Config:
@@ -23,6 +20,9 @@ class QuarterlyDataOut(QuarterlyDataBase):
 
 class QuarterlyDataCreate(BaseModel):
     symbol: str
+    notes: str | None
+    release_date: date | None
+    created_at: datetime
 
     class Config:
         orm_mode = True

@@ -7,7 +7,6 @@ from sqlalchemy.orm import Session
 from .stock_route import get_stock_by_symbol_common
 from typing import List
 import logging
-import requests
 
 router = APIRouter(
     prefix="/quarterlydata",
