@@ -1,8 +1,8 @@
 from .classes.settings import settings
 
 from .classes.DatabaseConnection import engine
-from .models import ConsumerPriceIndex
-from .routers import cpi_route
+from .models import ConsumerPriceIndex, QuarterlyData, Stock
+from .routers import cpi_route, stock_route
 import datetime
 import logging
 from logging import handlers
@@ -29,6 +29,7 @@ logger.addHandler(fileHandler)
 logger.addHandler(streamHandler)
 
 ConsumerPriceIndex.Base.metadata.create_all(bind=engine)
+Stock.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
@@ -50,6 +51,7 @@ app.add_middleware(
 )
 
 app.include_router(cpi_route.router)
+app.include_router(stock_route.router)
 
 
 @app.get("/")

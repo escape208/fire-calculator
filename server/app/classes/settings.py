@@ -30,6 +30,8 @@ class Settings():
     DB_HOSTNAME = os.environ["DB_HOSTNAME"]
     DB_NAME = os.environ["DB_NAME"]
     DB_PORT = os.environ["DB_PORT"]
+    ALPHA_VANTAGE_URL = os.environ["ALPHA_VANTAGE_URL"]
+    ALPHA_VANTAGE_KEY = os.environ["ALPHA_VANTAGE_KEY"]
 
 
 settings = Settings()
