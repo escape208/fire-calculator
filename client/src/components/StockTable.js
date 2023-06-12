@@ -150,7 +150,7 @@ const StocksTable = (SearchString) => {
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description">
-                            Are you sure you want to delete stock {openDeleteDialogue.deleteId} ({openDeleteDialogue.npidName})?
+                            Are you sure you want to delete stock {openDeleteDialogue.deleteId} ({openDeleteDialogue.stockName})?
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
@@ -183,6 +183,8 @@ const StocksTable = (SearchString) => {
                         }}
                     >
                         <DataGrid
+                            rowSelection={false}
+                            disableColumnFilter={true}
                             getRowId={(row) => row.symbol}
                             rows={data}
                             columns={columns}

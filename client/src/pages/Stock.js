@@ -4,6 +4,7 @@ import Paper from '@mui/material/Paper';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 import Typography from '@mui/material/Typography';
+import AddEditQuarterlyData from "../components/AddEditQuarterlyData";
 
 const Stock = () => {
     const symbol = useParams().symbol;
@@ -59,6 +60,11 @@ const Stock = () => {
                     <Typography color="text.secondary" variant="caption" component="div" gutterBottom>
                         As of {data.last_price_retrieved}
                     </Typography>
+                </Paper>
+            </Grid>
+            <Grid item xs={6}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', minHeight: "150px" }}>
+                    <AddEditQuarterlyData />
                 </Paper>
             </Grid>
         </Grid>

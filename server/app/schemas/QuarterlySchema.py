@@ -21,7 +21,8 @@ class QuarterlyDataOut(QuarterlyDataBase):
 class QuarterlyDataCreate(BaseModel):
     symbol: str
     notes: str | None
-    release_date: date | None
+    release_date: date
+    eps: float
     created_at: datetime
 
     class Config:
