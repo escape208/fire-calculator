@@ -10,7 +10,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 DATE_TAG = datetime.datetime.now().strftime("%Y-%b-%d")
-LOG_FILENAME = f'{settings.LOG_PATH}/npidapi-{DATE_TAG}.log'
+LOG_FILENAME = f'{settings.LOG_PATH}/fireapi-{DATE_TAG}.log'
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
