@@ -62,7 +62,7 @@ const Stock = () => {
                     </Typography>
                 </Paper>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={8}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', minHeight: "150px" }}>
                     <AddEditQuarterlyData />
                 </Paper>

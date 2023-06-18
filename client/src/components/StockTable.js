@@ -195,20 +195,11 @@ const StocksTable = (SearchString) => {
                             }}
                             pageSizeOptions={[5, 10]}
                             onRowClick={handleRowClick}
+
                         />
                     </Box>
 
                 }
-                {/* Only if there's not an active error, show the 'No Stocks to Display' message. */}
-                {
-                    (alert.visible === false && count === 0) ?
-                        <>
-                            No Stocks to display.
-                        </>
-                        :
-                        ''
-                }
-
 
             </>
 
